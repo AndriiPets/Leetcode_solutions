@@ -9,27 +9,25 @@ from collections import deque
 
 
 class Solution:
-    def levelOrder(self, root: TreeNode):
-        if root == None:
+    def rightSideView(self, root: TreeNode):
+        if not root:
             return []
-
-        res = []
 
         q = deque()
         q.append(root)
+        res = []
 
         while q:
             qlen = len(q)
             level = []
 
             for i in range(qlen):
-                nod = q.popleft()
-                level.append(nod.val)
+                node = q.popleft()
+                level.append(node.val)
 
-                if nod.left:
-                    q.append(nod.left)
-                if nod.right:
-                    q.append(nod.right)
-            res.append(level)
-
+                if node.right:
+                    q.append(node.right)
+                if node.left:
+                    q.append(node.left)
+            res.append(level[0])
         return res
