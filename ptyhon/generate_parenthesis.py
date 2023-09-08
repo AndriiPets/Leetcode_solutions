@@ -1,4 +1,4 @@
-def generateParenthesis(self, n: int):
+def generateParenthesis(n: int):
     res = []
     count = n
 
